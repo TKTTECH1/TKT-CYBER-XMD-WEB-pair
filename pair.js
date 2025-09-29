@@ -66,9 +66,9 @@ router.get('/', async (req, res) => {
                             `▸ *Never share* your session ID WITH ANY PUNK\n` +
                             `▸ Join our WhatsApp Channel\n` +
                             `▸ Report bugs on GitHub\n\n` +
-                            `_Powered by MASTER-IP🇿🇼\n\n` +
+                            `_Powered by ᵀᴷᵀ-ᵀᴱᶜᴴ🇿🇼\n\n` +
                             `🔗 *Useful Links:*\n` +
-                            `▸ GitHub: https://github.com/tkttech/TKT-CYBER-XMD\n` +
+                            `▸ GitHub: https://github.com/tkttech/TKT-CYBER-XMD-V3\n` +
                             `▸ https://whatsapp.com/channel/0029Vb5vbMM0LKZJi9k4ED1a`,
                         contextInfo: {
                             mentionedJid: [sock.user.id],
