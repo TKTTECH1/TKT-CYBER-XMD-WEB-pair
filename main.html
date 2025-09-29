@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKT-CYBER-XMD-V3 PAIR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            position: relative;
+        }
+
+        /* Light Theme */
+        body.light {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+
+        body.light .para {
+            color: #555;
+        }
+
+        /* Dark Theme */
+        body.dark {
+            background: linear-gradient(135deg, #1e1e2f, #2a2a3b);
+            color: #fff;
+        }
+    
+        body.light .btn {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            color: #555;
+        }
+
+        /* Optimized Animated Background */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 1px, transparent 1px);
+            background-size: 25px 25px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: fadePulse 10s ease-in-out infinite;
+            will-change: opacity;
+        }
+
+        @keyframes fadePulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.15; }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1e1e2f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #e62d64);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 10s ease-in-out infinite;
+        }
+
+        .loader p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 20px;
+            font-weight: 800;
+            background-size: 300%;
+            background: #4facfe;
+              -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 10s ease-in-out infinite;
+        }
+
+        @keyframes gradientText {
+            0% { background-position: 0%; }
+            50% { background-position: 300%; }
+            100% { background-position: 0%; }
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            will-change: transform;
+        }
+
+        .logo {
+            /*font-size: 2.5rem;
+            /*font-weight: 800;
+           /* letter-spacing: 1px;
+            /*background: linear-gradient(45deg, #4facfe, #00f2fe, #ff416c);
+
+          /*  background: linear-gradient(45deg, #4facfe, #00f2fe);*/
+            /*-webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;*/
+              /* -webkit-background-clip: text;
+            /*-webkit-text-fill-color: transparent;
+           /* animation: gradientText 5s ease-in-out infinite;*/
+            
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #e62d64);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 10s ease-in-out infinite;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #4facfe;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.2), transparent);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .hero img {
+            width: 330px;
+            height: 175px;
+            border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: buttonPop 1.5s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #e62d64);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 10s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+            animation: buttonPop 2s ease-in-out infinite;
+        }
+        
+            @keyframes buttonPop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.4s ease;
+        }
+
+        /*.btn:hover::before {
+            left: 100%;
+        }*/
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+    
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+
+       /*.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }*/
+
+        .btn.link-device {
+            background: rgba(255, 255, 255, 0.1) /*linear-gradient(45deg, #ff416c, #ff4b2b)*/;
+        }
+
+        .btn.deploy {
+            background: rgba(255, 255, 255, 0.1) /*linear-gradient(45deg, #00c4b4, #00f2fe)*/;
+        }
+
+        .btn.help {
+background: rgba(255, 255, 255, 0.1) /*linear-gradient(45deg, #00c4b4, #00f2fe)*/;
+        }
+
+        /* Card Section */
+        .card-container {
+            min-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #4facfe;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: rotate(360deg);
+        }
+
+        .heater {
+            font-size: 1.8rem;
+            font-weight: 600;
+            /*background: linear-gradient(45deg, #4facfe, #00f2fe);*/
+            /*background: linear-gradient(45deg, #4facfe, #00f2fe, #e62d64);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            animation: gradientText 10s ease-in-out infinite;*/
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #e62d64);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 10s ease-in-out infinite;
+
+
+        }
+
+        .para {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 200;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: #4facfe;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff416c;
+            transform: scale(1.2);
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections Container */
+        .sections-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .section a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .section a:hover {
+            color: #ff416c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+
+            .sections-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .card {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .loader h1 {
+                font-size: 3rem;
+            }
+
+            .loader p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <h1 id="loadingPercentage">1%</h1>
+        <pLoading> Loading TKT-CYBER-XMD...</p>
+    </div>
+
+    <div class="cyber-grid"></div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">TKT-TECH🇿🇼</div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://files.catbox.moe/h48dlj.jpg" alt="Banner">
+        <h1>Welcome to TKT-CYBER-XMD-V3</h1>
+        <p class="para">One-click deployment • Easy management • Simple & free</p>
+        <div class="buttons">
+            <a href="/pair" class="btn link-device">🔗 Get pair code</a>
+            <a href="/qr" class="btn deploy">🚀 Get Qr scan</a>
+            <a href="https://wa.me/+263718095555?text=HELP_ME😢" class="btn help">👤 Help</a>
+        </div>
+    </section>
+
+    <!-- Centered Card Section -->
+    <div class="card-container">
+        <div class="card">
+            <img src="https://files.catbox.moe/1cp4yq.jpeg" alt="Profile" class="profile-img">
+            <h2 class="heater"TKT-CYBER-XMD ☺️</h2>
+            <p class="para">I'm a Web Designer and Developer. My full name is Tafadzwa Kureya. I live in Mutare,Zimbabwe🇿🇼. I am 19 years old. In a relationship with My GADGETS because i have bieng cheated (peace🌶️). 💚</p>
+            <div class="social-icons">
+                <a href="https://whatsapp.com/channel/0029Vb5vbMM0LKZJi9k4ED1a" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/+263718095555?text=_Hey" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sections Container with Grid -->
+    <div class="sections-container">
+        <section class="section">
+            <h2 class="heater">About This Bot</h2>
+            <p class="para"TKT-CYBER-XMD-V3 is Zimbabwe's best WhatsApp bot, created by Mr. TKT-TECH🇿🇼.</p>
+            <h3>Bot Features</h3>
+            <p class="para">WhatsApp status auto-seen, auto-react, auto-reply, song/video downloads, Facebook, TikTok, Twitter video downloads, and more.</p>
+        </section>
+        <section class="section">
+            <h2 class="heater">Our Services</h2>
+            <p class="para">From linking devices to deploying solutions, we offer a wide range of services tailored to your requirements.</p>
+        </section>
+        <section class="section">
+            <h2 class="heater">Contact Us</h2>
+            <p class="para">Reach out for support or inquiries.</p>
+            <a href="https://wa.me/+263718095555?text=HAVE_ERROR_TKT-CYBER-XMD-V3⚠️">WhatsApp</a>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        // Loading Animation
+        window.addEventListener('load', () => {
+            let percentage = 1;
+            const loader = document.getElementById('loader');
+            const percentageText = document.getElementById('loadingPercentage');
+
+            const loadingInterval = setInterval(() => {
+                percentage++;
+                percentageText.textContent = `${percentage}%`;
+                if (percentage >= 100) {
+                    clearInterval(loadingInterval);
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 30);
+        })
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light');
+            document.body.classList.toggle('dark');
+            const themeButton = document.querySelector('.theme-toggle');
+            themeButton.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
+        }
+
+        // Optimized GSAP Animations
+        gsap.from('.hero img', { opacity: 0, y: 30, duration: 0.8 });
+        gsap.from('.hero h1', { opacity: 0, y: 30, duration: 0.8, delay: 0.2 });
+        gsap.from('.hero p', { opacity: 0, y: 30, duration: 0.8, delay: 0.4 });
+        gsap.from('.buttons .btn', {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            delay: 0.6,
+            stagger: 0.1
+        });
+
+        gsap.from('.card', {
+            scrollTrigger: {
+                trigger: '.card-container',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.8
+        });
+
+        gsap.utils.toArray('.section').forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8
+            });
+        });
+    </script>
+</body>
+</html>

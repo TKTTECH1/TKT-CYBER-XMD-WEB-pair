@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TKT-CYBER-XMD-V3 PAIR CODE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000; /* Black background for Matrix effect */
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Matrix Animation Canvas */
+    #matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Behind all content */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 370px;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .box {
+      width: 280px;
+      height: 380px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: sway 6s ease-in-out infinite;
+      transform: perspective(1000px) rotateY(0deg);
+      transition: transform 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @keyframes sway {
+      0% { transform: perspective(1000px) translateY(0) rotateY(0deg) scale(1); }
+      50% { transform: perspective(1000px) translateY(20px) rotateY(5deg) scale(1.05); }
+      100% { transform: perspective(1000px) translateY(0) rotateY(0deg) scale(1); }
+    }
+
+    .box:hover {
+      transform: perspective(1000px) translateY(-10px) rotateY(10deg) scale(1.1);
+    }
+
+    #text {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .centered-text {
+      color: #0f0; /* Matrix green text */
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .input-container {
+      display: flex;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 5px;
+      gap: 6px;
+      max-width: 400px;
+      width: 100%;
+      transition: all 0.3s ease;
+      justify-content: center;
+    }
+
+    .input-container input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #878787;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .input-container input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .input-container input:focus {
+      outline: none;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Matrix green glow */
+      background: rgba(255, 255, 255, 0.2);
+      color:#0f0;
+    }
+
+    .input-container input:focus::placeholder {
+      color: transparent;
+    }
+
+    .input-container button {
+      padding: 12px;
+      background: linear-gradient(
+        45deg,
+        #0f0, #0a0, #0f0, #0a0
+      ); /* Matrix green gradient */
+      background-size: 200% 200%;
+      animation: glowPulse 2s ease infinite;
+      color: #000;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    @keyframes glowPulse {
+      0% { background-position: 0% 50%; box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); }
+      50% { background-position: 100% 50%; box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); }
+      100% { background-position: 0% 50%; box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); }
+    }
+
+    .input-container button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(0, 255, 0, 0.3); /* Matrix green ripple */
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .input-container button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .input-container button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 0, 0.8); /* Enhanced glow */
+      color: #000;
+    }
+
+    @media (max-width: 500px) {
+      .box {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .input-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .input-container input,
+      .input-container button {
+        border-radius: 10px;
+        width: 100%;
+      }
+    }
+
+    .container img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      animation: pulse 2s ease-in-out infinite;
+      border: 3px solid rgba(0, 255, 0, 0.3); /* Matrix green border */
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); }
+      50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); }
+      100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); }
+    }
+
+    #waiting-message {
+      color: #0f0; /* Matrix green */
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 0.5s ease-in;
+      margin-top: 10px;
+    }
+
+    #waiting-message::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 3px solid #0f0; /* Matrix green spinner */
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+  <div class="container">
+    <div class="box" id="box">
+      <div id="text">
+        <img src="https://files.catbox.moe/d622xc.png" alt="Profile Image">
+        <h3 class="centered-text">Link with Phone Number</h3>
+        <h6>⚙️ Enter your number with country code</h6><br>
+        <div class="input-container">
+          <input placeholder="+263718095555" type="number" id="number" name="phone" aria-label="Phone number with country code">
+          <button id="submit">Submit</button>
+        </div>
+        <a id="waiting-message" style="display: none;">In process...</a>
+        <main id="pair"></main>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    // Matrix Animation
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0f0'; // Matrix green
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+
+    // Existing JavaScript for form submission
+    const pair = document.getElementById("pair");
+    const submitBtn = document.getElementById("submit");
+    const numberInput = document.getElementById("number");
+    const waitingMessage = document.getElementById("waiting-message");
+
+    async function copyCode() {
+      const copyElement = document.getElementById("copy");
+      const text = copyElement.innerText.replace('CODE: ', '');
+      await navigator.clipboard.writeText(text);
+      copyElement.innerText = "COPIED!";
+      copyElement.style.color = "#0f0"; // Matrix green
+      copyElement.style.fontWeight = "bold";
+      setTimeout(() => {
+        copyElement.innerText = `CODE: ${text}`;
+        copyElement.style.color = "#ff0000";
+      }, 1000);
+    }
+
+    submitBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      pair.innerHTML = '';
+      waitingMessage.style.display = 'none';
+
+      if (!numberInput.value) {
+        pair.innerHTML = '<a style="color:#0f0;font-weight:bold">❗ Enter your WhatsApp number with country code.</a><br><br>';
+        return;
+      }
+
+      const cleanedNumber = numberInput.value.replace(/[^0-9]/g, "");
+      if (cleanedNumber.length < 11) {
+        pair.innerHTML = '<a style="color:#0f0;font-weight:bold">❌ Invalid number format ❌</a><br><br>';
+        return;
+      }
+
+      const formattedNumber = '+' + cleanedNumber.replace(/(\d{3})(\d{5})(\d+)/, '$1 $2 $3');
+      numberInput.type = "text";
+      numberInput.value = formattedNumber;
+      numberInput.style.color = "#0f0"; // Matrix green
+      numberInput.style.fontSize = "18px";
+
+      waitingMessage.style.display = 'flex';
+      try {
+        const { data } = await axios(`/code?number=${cleanedNumber}`);
+        waitingMessage.style.display = 'none';
+        const code = data.code || "Service Unavailable";
+        pair.innerHTML = `
+          <font id="copy" onclick="copyCode()" style="color:#ff0000;font-weight:bold;cursor:pointer" size="5">
+            CODE: <span style="color:#0f0">${code}</span>
+          </font><br><br>`;
+      } catch (error) {
+        waitingMessage.style.display = 'none';
+        pair.innerHTML = '<a style="color:#0f0;font-weight:bold">❌ Error fetching code ❌</a><br><br>';
+      }
+    });
+  </script>
+</body>
+  </html>
