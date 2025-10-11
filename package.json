@@ -14,7 +14,7 @@
   "keywords": [
     "nodejs",
     "docker",
-    "render"
+    "koyeb"
   ],
   "author": "Casey Rhodes",
   "license": "MIT",
@@ -37,6 +37,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/caseyrhodes/caseyrhodes-pair.git"
+    "url": "https://github.com/tkttech/TKT-CYBER-XMD-WEB-pair.git"
   }
 }
