@@ -1,0 +1,26 @@
+{
+"name": "THARUSHA-MD_PAIR",
+    "version": "0.0.1",
+    "description": "A multi functional whatsapp bot Web paircode.",
+    "main": "index.js",
+    "scripts": {
+      "start": "pm2 start index.js --deep-monitoring --attach --name THARUSHA-MD_PAIR",
+      "stop": "pm2 stop THARUSHA-MD_PAIR",
+     "restart": "pm2 restart THARUSHA-MD_PAIR"
+    },
+  "dependencies": {
+    "@whiskeysockets/baileys": "npm:@fuxxy-star/baileys",              
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "jimp": "0.16.1",
+    "qrcode": "^1.5.3",
+    "awesome-phonenumber": "^2.64.0",
+    "pino": "^8.1.0",
+    "phone" : "3.1.30",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.1",
+    "path": "^0.12.7",
+    "megajs": "1.1.7",
+    "pm2": "^5.4.0",
+    "async-mutex":"0.4.1"
+   }
+}
