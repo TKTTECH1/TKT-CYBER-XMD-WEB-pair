@@ -1,22 +1,19 @@
-{
-    "name": "TKT-CYBER-AISession Generator",
-    "description": "I'm Web Session Generator by Kg Tech",
-    "logo": "",
-    "repository": "https://github.com/Giftedmaurice/giftedmdV2-session-generator",
-    "keywords": ["@Xcelsama"],
-    "success_url": "/", 
-    "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
-    "env": {      
-      "PORT": {
-        "description": "Port for web app.4000,5000,3000... any!",
-        "value": "5000",
-        "required": false 
-      },
-      "MESSAGE": {
-        "description": "",
-        "value": "",
-        "required": false 
-      }
-    }   
 
-}
+{
+    "name": "arslan-md",
+    "description": "A whatsApp bot based on Baileysjs linrary (Ts+Js) with Multi Device support",
+    "repository": "https://github.com/Arslan-MD/Arslan-Pairing-Site",
+    "logo": "https://files.catbox.moe/a6chsf.jpg",
+    "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
+    "buildpacks": [
+      {
+        "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+          }
+     ]
+} 
